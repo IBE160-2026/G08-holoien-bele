@@ -7,4 +7,4 @@ Repoet inneholder gruppens applikasjon og dokumentasjon av utvikling, testing og
 ## Medlemmer
 
 - Daniel Holøien
-- Navn ikke oppgitt (medlem 1)
+- Jakob Saleh Bele
