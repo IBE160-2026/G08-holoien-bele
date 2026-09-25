@@ -2,7 +2,7 @@
 title: "Product Brief: AI Detective Game"
 status: draft
 created: 2026-09-16
-updated: 2026-09-19
+updated: 2026-09-25
 ---
 
 # AI Detective Game
@@ -38,11 +38,19 @@ The design challenge is to combine flexible dialogue with a fair, solvable myste
 
 Players register with a username and password, log in and resume their own saved games. Progress, conversations, discovered clues and character state are isolated per user and attempt. Email verification, social login and email-based password recovery are outside the agreed basic account scope.
 
-The entire fullstack website must deploy through a single `docker-compose.yml`, including the frontend, backend, PostgreSQL and any required supporting services. The local stack must be self-contained, requiring no separate installation of language runtimes or a database on the host. Docker with Compose and documented configuration are the deployment prerequisites; external AI access remains a separate, deferred dependency.
+**Database purpose:** PostgreSQL stores user accounts and password hashes, login sessions, each attempt's case facts, question budget, conversation history, discovered evidence, character state, accusations and results. These records support resuming an unchanged case and enforcing separate progress for each player. The detailed table structure remains to be designed.
+
+The entire fullstack website must deploy through a single `docker-compose.yml`, including the frontend, backend, PostgreSQL and any required supporting services. The local stack must be self-contained, requiring no separate installation of language runtimes or a database on the host. Docker with Compose and documented configuration are the deployment prerequisites; live AI dialogue additionally requires internet access and an OpenRouter API key.
 
 The same application code and schema must support optional hosted deployment, with Supabase usable as hosted PostgreSQL. Authentication is handled by the application backend using an established framework or library. Separate installations do not automatically share accounts or saves.
 
-Infrastructure and optional hosting must use free services. AI dialogue may incur costs; provider, API access, budget and API-key handling during assessment are deliberately deferred. Public hosting is optional; local execution is sufficient for submission.
+Infrastructure and optional hosting must use free services. AI dialogue may incur costs. Public hosting is optional; local execution is sufficient for submission.
+
+## External integrations
+
+**OpenRouter:** The selected API service for witness and suspect dialogue, following the professor's recommendation. The backend calls OpenRouter with relevant character knowledge and conversation context. Prefer a low-cost LLM; the specific model remains undecided and configurable. Keep the API key on the server. See the [OpenRouter quickstart](https://openrouter.ai/docs/quickstart).
+
+**Supabase, optional:** Provides hosted PostgreSQL if the website is published. Local deployment uses the PostgreSQL container; neither deployment requires Supabase Auth. No other external service is currently required by the product scope.
 
 ## Success and assessment
 
@@ -59,4 +67,4 @@ The portfolio has two components: code/functionality at 70% and group reflection
 
 ## Open decisions
 
-Question limit and counting rules; evidence-presentation interaction and sufficiency rules; case-pattern count and variation checks; framework and authentication library; weekly team capacity. AI/API access is deferred and does not block product planning. Technical proposals, sources and supporting context are in `addendum.md`.
+Question limit and counting rules; evidence-presentation interaction and sufficiency rules; case-pattern count and variation checks; framework and authentication library; weekly team capacity. OpenRouter is selected; the low-cost model, credentials, spending budget and API-key handling during assessment remain open. Technical proposals, sources and supporting context are in `addendum.md`.
