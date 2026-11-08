@@ -17,7 +17,7 @@ Statuses: `ready`, `needs-input`, `blocked`, `in-progress`, `review`, `done`. `d
 
 | ID | Deliverable / boundary | Owner / driver | Reviewer | Status and dependency |
 |---|---|---|---|---|
-| C01 | Collaboration policy, agent routing, PR template and protection setup guide | Daniel | Jakob | in-progress — `codex/team-workflow-policy`; teammate review/merge pending |
+| C01 | Collaboration policy, agent routing, PR template and protection setup guide | Daniel | Jakob | review — [draft PR #1](https://github.com/IBE160-2026/G08-holoien-bele/pull/1), `codex/team-workflow-policy`; teammate approval/merge pending |
 | C02 | Enable and verify GitHub protection for `main` using the guide; coordinate with repository admin/teacher if permissions require it | Daniel | Jakob | blocked — C01 merge/admin access; settings not changed by C01 |
 | U01 | Complete DESIGN.md/EXPERIENCE.md and relevant screen references; jointly decide name, visual direction and interview information hierarchy | Daniel (joint decisions) | Jakob | needs-input — current UX files are draft frontmatter only |
 | R01 | Architecture and shared contracts: framework/auth, data model, engine/progress interface, migrations, sessions, atomicity/idempotency, Vercel/Supabase and preview data | Jakob (joint decisions) | Daniel | blocked — agreed UX inputs; decide before dependent coding |
@@ -35,6 +35,8 @@ Statuses: `ready`, `needs-input`, `blocked`, `in-progress`, `review`, `done`. `d
 ## Ready-task record
 
 Before moving a story to `in-progress`, record its objective, acceptance/FR IDs, owner, reviewer, dependencies, affected area, branch and expected tests. Keep its PR link, actual test results, blocker and next action current. Both can amend allocations by agreement; record the change before simultaneous editing starts.
+
+Until a separate task tracker is adopted, confirm new claims with the teammate on Discord and link the draft PR. An unmerged branch edit is not yet reflected in `main`'s copy of this register; use the draft PR for live progress and coordinate register edits. Do not maintain an independent personal assignment list with different owners.
 
 ## Shared-file coordination
 

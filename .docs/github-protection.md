@@ -8,7 +8,7 @@ In the repository Settings, create an active branch ruleset or protection rule t
 
 - Require pull requests and **one approving review from the other teammate**.
 - Dismiss stale approvals after new reviewable changes; require the latest reviewable push to be approved by someone other than its pusher where available.
-- Require review conversations to be resolved and branches to be up to date before merging.
+- Require review conversations to be resolved. Once real CI checks are configured, also require the task branch to be up to date before merging.
 - Block branch deletion and force pushes. Apply protections to administrators; do not add routine bypass actors.
 - Enable required status checks **only after their real jobs have run**. Select actual check names, not placeholders. Today no application CI exists; F01 must establish it before application features merge. Vercel preview status is not a substitute for tests.
 - Keep merge commits enabled and use them under the team policy, preserving meaningful checkpoints and contribution history.
