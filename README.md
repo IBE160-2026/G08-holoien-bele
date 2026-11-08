@@ -16,5 +16,6 @@ Repoet inneholder gruppens applikasjon og dokumentasjon av utvikling, testing og
 - [Oppsett av GitHub-beskyttelse for main](.docs/github-protection.md)
 
 Alt arbeid gjøres på korte oppgavebranches. Daniel og Jakob eier hele features
-med UI, backend og tester, og gjennomgår hverandres PR-er før merge. Felles
+med UI, backend og tester. PR-er og relevante sjekker brukes før merge; review
+fra den andre er nyttig, men ikke et krav. Felles
 planlegging og avgjørelser fra Discord dokumenteres som felles arbeid.

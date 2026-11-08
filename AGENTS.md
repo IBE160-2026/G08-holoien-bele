@@ -12,12 +12,14 @@ Save incomplete work as a clearly labelled WIP checkpoint on a draft PR branch.
 Do not repeatedly ask to publish those checkpoints. This standing authorization
 also covers log-only commits; it overrides the logging skill's default of waiting
 for a separate push request. Never treat it as permission to push directly to
-`main`, merge/self-approve a PR, force-push, or change GitHub settings.
+`main`, autonomously merge a PR, fabricate an approval, force-push, or change GitHub settings.
 
 Open a draft PR after the first branch push. If unavailable tools prevent it,
-provide the comparison link and record the pending step. Leave merging to human
-review: the other teammate must approve the final changes. Record tests honestly;
-a pushed WIP is a backup, not evidence that a version works.
+provide the comparison link and record the pending step. A second-person review
+is optional. The owner checks the final diff and relevant tests; an agent may
+merge only on an explicit user merge request and after the PR readiness checks.
+Never invent another person's approval. Record tests honestly; a pushed WIP is a
+backup, not evidence that a version works.
 
 ## Session logging
 

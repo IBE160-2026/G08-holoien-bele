@@ -1,11 +1,13 @@
 # Team workflow
 
-Approved by the user on 2026-11-08: end-to-end task ownership, automatic task-branch checkpoints and pushes, and teammate review before merging. Applies to Daniel, Jakob, Codex and Claude. The [shared work register](.docs/team-work.md) records owners and dependencies. Server-side enforcement must be enabled separately using the [GitHub protection guide](.docs/github-protection.md).
+Approved by the user on 2026-11-08: end-to-end task ownership, automatic task-branch checkpoints and pushes, and PR-based integration. Updated by the user: second-person approval is optional, not a merge requirement. Applies to Daniel, Jakob, Codex and Claude. The [shared work register](.docs/team-work.md) records owners and dependencies. Server-side enforcement must be enabled separately using the [GitHub protection guide](.docs/github-protection.md).
+
+This is a lightweight adaptation of [GitHub Flow](https://docs.github.com/en/get-started/using-github/github-flow): branch, commit/push, PR, checks/feedback, merge and remove the finished branch. The team chooses optional reviews; [GitHub protection settings](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule) can require PRs/checks without requiring another person's approval.
 
 ## Start an owned task
 
 1. Read `AGENTS.md` or `CLAUDE.md`, this policy, the shared task and relevant session logs. Verify the current branch, working tree and staged changes.
-2. Claim one task in the shared register: one accountable owner, the other person as reviewer, acceptance criteria and dependencies. Each person has at most one active development task. Shared work still has one driver.
+2. Claim one task in the shared register: one accountable owner, an optional review buddy, acceptance criteria and dependencies. Each person has at most one active development task. Shared work still has one driver.
 3. Fetch `origin` and create a short-lived `codex/<task-id>-<topic>` branch from the latest `origin/main`. Do not develop, test experimental changes or commit session logs directly on `main`.
 4. Use a separate clone/worktree per concurrently active task. Do not let two people or writing agents share a working directory. Never discard or include someone else's uncommitted/staged changes to make your task easier.
 5. After the first push, open a draft PR to `main` so the teammate can see the scope and progress. If tools cannot open it, provide the branch comparison link and record that PR creation remains pending.
@@ -32,11 +34,11 @@ No permanent Daniel/Jakob, frontend/backend or develop branches. One task branch
 
 When performing a user-approved task, agents are authorized to create its task branch, make focused local commits, push checkpoints/WIP/session logs to that task branch, and open/update its draft PR without repeatedly asking. This includes the session-end checkpoint. The user approved this authorization explicitly; it satisfies logging skills' condition that pushes require a user request.
 
-This does **not** authorize direct pushes to `main`, merging PRs, approving on a teammate's behalf, force-pushing published history, deleting another person's branch, or changing GitHub settings. A specific user instruction is required for such an exception; record its purpose and resulting checks. Normal work follows the PR path.
+This does **not** authorize direct pushes to `main`, autonomous PR merges, pretending to approve on a teammate's behalf, force-pushing published history, deleting another person's branch, or changing GitHub settings. A specific user instruction is required for such an exception; record its purpose and resulting checks. Normal work follows the PR path. An agent may merge when the user explicitly requests that merge and readiness/checks are satisfied; no separate teammate approval is needed.
 
 ## Keep branches current without overwriting work
 
-Fetch before starting and before requesting final review. Merge `origin/main` into the task branch when needed, resolve conflicts there and rerun affected checks. Avoid rebasing published branches and avoid force pushes. A non-fast-forward push means inspect remote changes; do not overwrite them.
+Fetch before starting and before marking a PR ready to merge. Merge `origin/main` into the task branch when needed, resolve conflicts there and rerun affected checks. Avoid rebasing published branches and avoid force pushes. A non-fast-forward push means inspect remote changes; do not overwrite them.
 
 Branches reduce overlap but do not eliminate conflicts. Agree interfaces before parallel work, and coordinate changes to shared files as described in the work register. If two tasks need the same contract/schema edit, split out a prerequisite PR or agree which owner makes it.
 
@@ -50,15 +52,15 @@ A PR is ready only when its owner has:
 - checked the Vercel preview for UI/deployment changes, or recorded a reason it is not applicable;
 - synchronized with `main`, resolved conflicts and updated docs/session logs.
 
-The other human teammate reviews the diff and test evidence, tries the important flow, and approves. An AI review helps but does not substitute for that approval. New changes invalidate the approval; request another review. Resolve all review conversations before merge.
+The owner self-reviews the final diff and test evidence and checks the important flow. A second-person approval is **not required**: the author may merge a ready PR without waiting for the teammate. Request optional help for authentication, migrations, shared interfaces, deployment changes or uncertainty; do not record an approval that did not happen. Resolve any review feedback/conversations that were actually raised. After new commits, refresh the self-review and rerun affected checks.
 
-Use GitHub's **Create a merge commit** so meaningful checkpoint commits and contribution history remain available. Only merge an approved, passing PR; do not use `main` to find out whether the feature works. Post-merge verification can confirm integration. After merging, remove the finished branch and update local `main` with a fast-forward pull.
+Use GitHub's **Create a merge commit** so meaningful checkpoint commits and contribution history remain available. Only merge a ready, passing PR; do not use `main` to find out whether the feature works. Post-merge verification can confirm integration. After merging, remove the finished branch and update local `main` with a fast-forward pull.
 
 Current automated application CI does not exist. Until the foundation task adds it, PRs must show relevant local checks, including the existing case verifier when applicable. Before application features merge, create meaningful build/test/Compose checks and require their actual observed job names in GitHub. Passing the authoring-model verifier alone never proves the application works.
 
 ## Recover known-good versions
 
-Treat reviewed, verified `main` merge commits as recovery points. For a demonstrated working milestone, record its commit, checks, environment and limits in the task/PR and create an annotated `milestone/<name>` tag when the team approves it. Do not label today's planning-only repository as a working game.
+Treat verified `main` merge commits as recovery points. For a demonstrated working milestone, record its commit, checks, environment and limits in the task/PR and create an annotated `milestone/<name>` tag when the team approves it. Do not label today's planning-only repository as a working game.
 
 To inspect a prior version, create a separate recovery branch/worktree from its known-good SHA/tag. To undo a regression, propose a revert/fix PR from current `main`; do not reset shared `main`, move published milestone tags or force-push history. This preserves later work and the reason for recovery.
 

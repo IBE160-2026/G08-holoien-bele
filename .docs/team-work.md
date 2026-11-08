@@ -6,7 +6,7 @@ Initial allocation approved by the user on 2026-11-08. This is a capability-leve
 
 - **Daniel Holøien:** accounts, sessions, saved progress and latest-completed-attempt review, including their UI, backend and tests.
 - **Jakob Saleh Bele:** interrogation, turn accounting, evidence, hints and verdicts, including their UI, backend and tests.
-- The other person reviews each task. Each person owns one development task at a time. Implement a small complete feature slice, not a private layer the other person cannot understand.
+- The other person is the suggested review buddy; a second-person approval is optional and does not block a ready merge. Each person owns one development task at a time. Implement a small complete feature slice, not a private layer the other person cannot understand.
 - UX, architecture, API/data contracts, integration and reflection are joint decisions with a named driver. The driver maintains the artifact; both agree on decisions affecting both feature areas.
 
 The user reports that brief/PRD decisions were discussed together through Discord screenshare. Record them as joint decision work; exact meeting dates/durations were not supplied. For future pair sessions, log participants, driver, decisions and each person's contribution. Git authorship remains the actual committer; add co-author trailers only with confirmed identities. Do not manufacture equal hours or commit authors.
@@ -15,9 +15,9 @@ The user reports that brief/PRD decisions were discussed together through Discor
 
 Statuses: `ready`, `needs-input`, `blocked`, `in-progress`, `review`, `done`. `done` requires a merged PR and accepted evidence, not merely a pushed branch. Named allocation is approved; story boundaries and implementation file paths will be finalized after UX/architecture.
 
-| ID | Deliverable / boundary | Owner / driver | Reviewer | Status and dependency |
+| ID | Deliverable / boundary | Owner / driver | Optional review buddy | Status and dependency |
 |---|---|---|---|---|
-| C01 | Collaboration policy, agent routing, PR template and protection setup guide | Daniel | Jakob | review — [draft PR #1](https://github.com/IBE160-2026/G08-holoien-bele/pull/1), `codex/team-workflow-policy`; teammate approval/merge pending |
+| C01 | Collaboration policy, agent routing, PR template and protection setup guide | Daniel | Jakob | done on landing — [PR #1](https://github.com/IBE160-2026/G08-holoien-bele/pull/1); user-directed merge after local checks, with optional second-person review |
 | C02 | Enable and verify GitHub protection for `main` using the guide; coordinate with repository admin/teacher if permissions require it | Daniel | Jakob | blocked — C01 merge/admin access; settings not changed by C01 |
 | U01 | Complete DESIGN.md/EXPERIENCE.md and relevant screen references; jointly decide name, visual direction and interview information hierarchy | Daniel (joint decisions) | Jakob | needs-input — current UX files are draft frontmatter only |
 | R01 | Architecture and shared contracts: framework/auth, data model, engine/progress interface, migrations, sessions, atomicity/idempotency, Vercel/Supabase and preview data | Jakob (joint decisions) | Daniel | blocked — agreed UX inputs; decide before dependent coding |
@@ -34,7 +34,7 @@ Statuses: `ready`, `needs-input`, `blocked`, `in-progress`, `review`, `done`. `d
 
 ## Ready-task record
 
-Before moving a story to `in-progress`, record its objective, acceptance/FR IDs, owner, reviewer, dependencies, affected area, branch and expected tests. Keep its PR link, actual test results, blocker and next action current. Both can amend allocations by agreement; record the change before simultaneous editing starts.
+Before moving a story to `in-progress`, record its objective, acceptance/FR IDs, owner, optional review buddy, dependencies, affected area, branch and expected tests. Keep its PR link, actual test results, blocker and next action current. Both can amend allocations by agreement; record the change before simultaneous editing starts.
 
 Until a separate task tracker is adopted, confirm new claims with the teammate on Discord and link the draft PR. An unmerged branch edit is not yet reflected in `main`'s copy of this register; use the draft PR for live progress and coordinate register edits. Do not maintain an independent personal assignment list with different owners.
 
@@ -48,6 +48,6 @@ Until a separate task tracker is adopted, confirm new claims with the teammate o
 
 ## Review, milestones and dates
 
-Follow [CONTRIBUTING.md](../CONTRIBUTING.md). Pairing does not remove teammate review; the non-author reviews the final PR state, even when decisions were discussed together. Do not self-approve using another account or treat an agent's review as a human sign-off.
+Follow [CONTRIBUTING.md](../CONTRIBUTING.md). The owner self-reviews the final PR state and verifies acceptance evidence. Ask the review buddy for another perspective when useful, especially for shared or risky changes; do not wait for mandatory approval. Pairing/review contributions are recorded honestly. Do not use another account or pretend that an agent review is someone else's sign-off.
 
 Target a near-complete product by **2026-11-21**; code/functionality and reflection are due **2026-12-05**. Weekly hours remain intentionally open, so this register does not invent person-day estimates. If capacity threatens the target, jointly reduce unapproved work rather than silently drop required features. Every feature owner supplies test evidence; integration is continuous, not a final-week handoff.

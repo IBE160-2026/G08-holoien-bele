@@ -12,7 +12,8 @@ maintenance and a path-limited commit of log files only. Apply the root project
 instructions and [team workflow](../../../CONTRIBUTING.md): the user has granted
 standing authorization to push task-branch checkpoints and logs. Keep logging
 commits separate from feature commits. This does not authorize main pushes or
-PR merges; follow the teammate-review policy.
+autonomous PR merges. A user-requested merge follows the PR readiness policy;
+second-person approval is optional.
 
 Resolve repository paths from the Git/worktree root. Keep BMAD decision records
 in addition to these session logs. For a retrospective backfill, use the available
