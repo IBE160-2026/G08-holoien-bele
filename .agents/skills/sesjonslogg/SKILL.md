@@ -8,8 +8,12 @@ description: Record completed repository work in per-user session logs and maint
 Read and follow the [shared session-logging instructions](../../../.claude/skills/sesjonslogg/SKILL.md)
 before logging. This Codex entry point uses the same canonical workflow as Claude,
 including user identity, descending filenames, same-work continuation, `issues.md`
-maintenance and a path-limited local commit of log files only. Never push unless
-the user asks.
+maintenance and a path-limited commit of log files only. Apply the root project
+instructions and [team workflow](../../../CONTRIBUTING.md): the user has granted
+standing authorization to push task-branch checkpoints and logs. Keep logging
+commits separate from feature commits. This does not authorize main pushes or
+autonomous PR merges. A user-requested merge follows the PR readiness policy;
+second-person approval is optional.
 
 Resolve repository paths from the Git/worktree root. Keep BMAD decision records
 in addition to these session logs. For a retrospective backfill, use the available
