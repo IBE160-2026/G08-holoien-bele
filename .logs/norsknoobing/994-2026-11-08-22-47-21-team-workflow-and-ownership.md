@@ -23,9 +23,16 @@ Create a team commit/push, branch and PR policy to preserve recoverable progress
 - Official skill validator passed in an isolated temporary environment. Local links, whitespace, eight-file change scope and shared instruction routing passed; final checks also cover the PR-linked register, session log and personal reminders. Local main remains at origin/main. Staging/cache files were removed. No app logic changed and no application test/preview/CI result is claimed.
 - GitHub CLI is unavailable; the draft PR was created with the existing GitHub credential in memory, without exposing or saving credential values. No automatic reviewer handle was invented.
 
+
+- Follow-up: the user explicitly requested merging PR #1, then clarified that review by the other person must not be required and asked for GitHub team best practices. No merge action had occurred before that clarification; the interrupted step only inspected PR state.
+- Updated the policy to a lightweight GitHub Flow adaptation: branch/checkpoint/PR/checks/merge/cleanup, owner self-review, optional review buddy, and help recommended for authentication/migrations/shared interfaces/deployment uncertainty. Updated CONTRIBUTING, agent routing, README, task register, protection guide and PR template. Agents still need an explicit user merge request; the standing push authorization does not authorize autonomous merges.
+- The main-protection guide now calls for PRs with zero required approvals, optional review routing and actual CI gates once created. No GitHub protection settings were changed. Existing tasks retain the approved owner split; review-buddy names are suggestions, not blockers.
+- Consulted GitHub's official Flow and branch-protection guidance. The revised Codex skill passed the official validator. Local links, whitespace and absence of the obsolete mandatory-review wording are checked before committing. No application code changed or application test/CI success is claimed.
+- Finalization updates PR #1's description, converts it from draft, and performs the explicitly requested head-pinned merge commit after checking actual conflicts/statuses. The linked GitHub PR is the canonical merge outcome/time; no fabricated Jakob approval or direct main push is used. C01's closing register state applies when that PR lands.
+
 ### Open items
 
-- Jakob reviews [PR #1](https://github.com/IBE160-2026/G08-holoien-bele/pull/1); C01 is not done until reviewed and merged.
+- No mandatory second-person approval remains. C01 closes when user-requested PR #1 lands; the linked PR records the actual merge result. C02 setup is still separate and pending.
 - Daniel coordinates C02: enable/verify main protection using the guide and an admin/teacher if needed. Settings were not configured by this task. Confirm GitHub handles before automatic reviewer routing/CODEOWNERS.
 - U01 UX choices remain pending. R01 architecture, S01 stories and F01 app/CI foundations gate application development. Current repository has no application CI; select real job names only after those checks exist/run.
 - Follow the [shared register](../../.docs/team-work.md) and [personal reminders](issues.md). The existing target remains a near-complete product by 2026-11-21 and submission on 2026-12-05; weekly hours remain open.

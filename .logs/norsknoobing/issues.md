@@ -17,7 +17,7 @@ Retrospectively reconstructed from this Codex chat on 2026-11-08. Completed entr
 - [x] 2026-11-08 [PRD / D-3 completed review](998-2026-11-08-13-34-44-detective-game-prd.md) — Decide whether latest completed-attempt review includes a read-only transcript/evidence or only accusation/verdict/reveal. Owner: user. Resolved 2026-11-08: full read-only transcript, collected evidence, accusation/verdict and reveal; active attempt unchanged.
 - [x] 2026-11-08 [PRD / D-4 simultaneous actions](998-2026-11-08-13-34-44-detective-game-prd.md) — Define player-visible behaviour for different concurrent tab/device actions, including accusation and restart, before state-changing stories. Owner: user/team. Resolved 2026-11-08: first valid saved action wins; different stale actions rejected free with refresh message; same-action retries recover the result.
 
-- [ ] 2026-11-08 [Team policy / C01-C02](994-2026-11-08-22-47-21-team-workflow-and-ownership.md) — Jakob reviews draft PR #1; Daniel coordinates main-protection setup/verification with an admin if needed. See the shared register for actual status; repository files alone do not enforce GitHub rules.
+- [ ] 2026-11-08 [Team policy / C01-C02](994-2026-11-08-22-47-21-team-workflow-and-ownership.md) — User requested PR #1 merge and removed the second-person review gate. Daniel still coordinates C02 main-protection setup/verification with an admin if needed; PRs/checks remain, required approvals are zero. See the shared register and linked PR for actual state.
 
 ## Completed in this chat
 
