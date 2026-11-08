@@ -13,9 +13,9 @@ Retrospectively reconstructed from this Codex chat on 2026-11-08. Completed entr
 - [ ] 2026-11-08 [PRD / reflection](998-2026-11-08-13-34-44-detective-game-prd.md) — Preserve AI-development/testing and student-verification evidence; complete group reflection alongside code/functionality for 2026-12-05, targeting a near-complete product by 2026-11-21. Owner: team.
 - [ ] 2026-11-08 [Brief / capacity](999-2026-11-08-13-34-44-product-brief-teacher-feedback.md) — Weekly team hours intentionally remain open; revisit if the 2026-11-21 near-complete-product target is threatened. Owner: team.
 
-- [ ] 2026-11-08 [PRD / D-2 hints](998-2026-11-08-13-34-44-detective-game-prd.md) — Define what progress changes hint selection and approve deterministic selection/fallback conditions in the case specification before hint implementation. Owner: user/team.
-- [ ] 2026-11-08 [PRD / D-3 completed review](998-2026-11-08-13-34-44-detective-game-prd.md) — Decide whether latest completed-attempt review includes a read-only transcript/evidence or only accusation/verdict/reveal. Owner: user.
-- [ ] 2026-11-08 [PRD / D-4 simultaneous actions](998-2026-11-08-13-34-44-detective-game-prd.md) — Define player-visible behaviour for different concurrent tab/device actions, including accusation and restart, before state-changing stories. Owner: user/team.
+- [ ] 2026-11-08 [PRD / D-2 hint mapping](998-2026-11-08-13-34-44-detective-game-prd.md) — Progress rule approved: authored discovery milestones plus zero turns, not spending turns alone. Approve exact milestone-to-hint priorities and fallback conditions in the D-1 case specification before hint implementation. Owner: team/case authoring.
+- [x] 2026-11-08 [PRD / D-3 completed review](998-2026-11-08-13-34-44-detective-game-prd.md) — Decide whether latest completed-attempt review includes a read-only transcript/evidence or only accusation/verdict/reveal. Owner: user. Resolved 2026-11-08: full read-only transcript, collected evidence, accusation/verdict and reveal; active attempt unchanged.
+- [x] 2026-11-08 [PRD / D-4 simultaneous actions](998-2026-11-08-13-34-44-detective-game-prd.md) — Define player-visible behaviour for different concurrent tab/device actions, including accusation and restart, before state-changing stories. Owner: user/team. Resolved 2026-11-08: first valid saved action wins; different stale actions rejected free with refresh message; same-action retries recover the result.
 
 ## Completed in this chat
 
