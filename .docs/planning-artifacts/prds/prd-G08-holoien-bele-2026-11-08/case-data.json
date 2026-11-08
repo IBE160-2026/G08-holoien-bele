@@ -1,0 +1,946 @@
+{
+  "case_id": "the-last-invoice",
+  "version": "1.0",
+  "status": "approved",
+  "title": "The Last Invoice",
+  "language": "English",
+  "starting_turns": 12,
+  "approved_foundation": [
+    "Small-company owner murdered before a financial review; interviews at the police station.",
+    "Business partner, accountant and building caretaker are the three interviewable characters.",
+    "Two initial supporting evidence items; four discovered items including all three key items."
+  ],
+  "approval_boundary": "The user explicitly approved this complete case as drafted, including the admission-based ending, on 2026-11-08. This freezes the authored facts, dialogue, conditions and hint table for implementation. Changes require a recorded scope/content revision and renewed validation.",
+  "culprit_id": "nora",
+  "initial_evidence": [
+    "E1",
+    "E2"
+  ],
+  "required_proof": [
+    "E3",
+    "E4",
+    "E5"
+  ],
+  "initial_flags": [],
+  "player_briefing": "Martin Hale, owner of North Quay Logistics, was found dead in his office at 19:10 on Friday evening. Police are treating his death as a murder. He had scheduled a review of unusual company payments for the next morning. Nora Reed, his business partner, Elias Ward, the accountant, and June Park, the building caretaker, are at the station to give statements. Read the incident summary and appointment note, question the three characters, and compare what they say with the records you uncover. You have 12 turns. A new question or confrontation costs one turn; reviewing material and asking for a hint are free. When ready, choose a culprit and up to three collected evidence items. Your confirmed accusation ends the attempt.",
+  "author_facts": [
+    "All people and events are fictional adults. The entire playable investigation takes place through station interviews and text evidence cards; no scene exploration, audio, document upload or signature-capture feature is required.",
+    "Nora Reed murdered Martin Hale at 19:05 by striking him once with a desk paperweight during an argument over money she had diverted. Do not add injury details or graphic imagery.",
+    "Nora left at 18:50, returned at 19:02 and left again at 19:08. Her original claim that she never returned is false.",
+    "The office has one entrance from the third-floor landing. There is no usable second door or window entrance. The landing recording is complete, time-checked and unaltered. Do not invent a hidden route or camera failure.",
+    "Martin spoke to June on the intercom at 19:04, confirming that Nora was with him. June discovered him dead at 19:10. Nora is the only visitor recorded in that interval before June arrived.",
+    "Elias was in the records archive from 18:55 until 19:12, verified by the archive entry/exit recording. He had incorrectly claimed a GBP 300 personal expense, but did not murder Martin.",
+    "June remained at the lobby desk until going to the office at 19:10. She holds an emergency key but did not use it during the murder interval and did not murder Martin.",
+    "The payment report documents GBP 18,000 diverted to a supplier controlled by Nora, using her sole payment authorization. The GBP 300 expense issue is separate and must not be described as the GBP 18,000 diversion.",
+    "Nora gives the recorded admission only after the player has collected the landing record and payment report and has confronted her with the landing record. No hidden trust score, exact wording puzzle or extra prerequisite exists."
+  ],
+  "characters": [
+    {
+      "id": "nora",
+      "name": "Nora Reed",
+      "role": "Business partner",
+      "intro": "Co-owner of North Quay Logistics. Says she left at 18:50 and did not return.",
+      "knowledge": "Knows the true meeting, diversion and murder. Initially conceals her return and describes the transfers as loans. After the landing confrontation admits the return but falsely claims Martin was alive when she left. After the combined confrontation admits the murder.",
+      "secrets": "Diverted GBP 18,000; killed Martin to prevent exposure. The culprit."
+    },
+    {
+      "id": "elias",
+      "name": "Elias Ward",
+      "role": "Accountant",
+      "intro": "Prepared the payment review. Says he was retrieving files in the archive.",
+      "knowledge": "Knows the appointment, payment report and his own archive visit. Does not witness the murder or know Nora killed Martin before an admission is obtained.",
+      "secrets": "Claimed a GBP 300 personal expense. Embarrassed about it; separate from the major diversion and not the murderer."
+    },
+    {
+      "id": "june",
+      "name": "June Park",
+      "role": "Building caretaker",
+      "intro": "Found Martin and supplied the appointment note. Has access to building records.",
+      "knowledge": "Knows the office access arrangement, the 19:04 intercom contact, the discovery, and the landing/archive records. Does not see the blow and must not claim to have witnessed it.",
+      "secrets": "No hidden crime or withheld murder witness statement. Possession of an emergency key is a lead to check, not proof of guilt."
+    }
+  ],
+  "timeline": [
+    [
+      "18:40",
+      "Elias gives Martin the payment report and is told to retrieve supporting files."
+    ],
+    [
+      "18:45",
+      "Martin writes the appointment note for Nora and notes the next-morning review."
+    ],
+    [
+      "18:50",
+      "Nora leaves the building, as she initially claims."
+    ],
+    [
+      "18:55",
+      "Elias enters the records archive."
+    ],
+    [
+      "19:00",
+      "Scheduled time of the meeting with Nora; she is late."
+    ],
+    [
+      "19:02",
+      "Nora returns and enters Martin's office from the landing."
+    ],
+    [
+      "19:04",
+      "Martin tells June on the intercom that Nora is with him and asks for a few minutes of privacy."
+    ],
+    [
+      "19:05",
+      "Nora kills Martin during their argument. June hears a brief clatter but does not see the attack."
+    ],
+    [
+      "19:08",
+      "Nora leaves the office and landing alone."
+    ],
+    [
+      "19:10",
+      "June goes to the office and discovers Martin dead."
+    ],
+    [
+      "19:11",
+      "June calls the police."
+    ],
+    [
+      "19:12",
+      "Elias leaves the records archive."
+    ]
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "title": "Incident summary",
+      "initial": true,
+      "author_kind": "supporting",
+      "source": "Initial police case file",
+      "text": "Martin Hale was found dead in his office at 19:10. June Park called the police at 19:11. The death is being investigated as a murder. Initial accounts: Nora Reed says she left at 18:50 and did not return. Elias Ward says he was in the records archive. June says she was at the lobby desk until checking the office. These are accounts to investigate, not verified conclusions."
+    },
+    {
+      "id": "E2",
+      "title": "Appointment note",
+      "initial": true,
+      "author_kind": "supporting",
+      "source": "Note supplied by June before the attempt",
+      "text": "A note in Martin's handwriting reads: '19:00 - Nora. Discuss the supplier transfers. Full payment review tomorrow, 08:00.' The note establishes an appointment and an issue to investigate; it does not establish who committed the murder."
+    },
+    {
+      "id": "E3",
+      "title": "Landing and intercom record",
+      "initial": false,
+      "author_kind": "key",
+      "source": "June, J-Q2",
+      "text": "Time-checked building records show Nora entering Martin's office at 19:02 and leaving alone at 19:08. At 19:04 Martin tells June on the intercom: 'Nora is here. Give us a few minutes.' June is next seen entering at 19:10. No other person enters or leaves the office between 19:02 and 19:10. The office has one entrance, covered continuously by this recording; there is no alternate entrance. This contradicts Nora's claim that she never returned."
+    },
+    {
+      "id": "E4",
+      "title": "Supplier payment report",
+      "initial": false,
+      "author_kind": "key",
+      "source": "Elias, E-Q2",
+      "text": "The report links GBP 18,000 in unauthorized supplier payments to a company controlled by Nora Reed. The bank references match the company ledger, and the payment authorizations are Nora's alone. Martin's review note says he will raise the diversion at the 08:00 review. Elias's GBP 300 personal-expense claim is listed separately and is not part of these transfers."
+    },
+    {
+      "id": "E5",
+      "title": "Recorded admission",
+      "initial": false,
+      "author_kind": "key",
+      "source": "Nora, C-nora-E4-admission",
+      "text": "Nora's recorded statement: \"You have the record of my return and the payments. Martin had found the money I diverted and said he would expose me at the review. During our argument I struck him with the desk paperweight. I acted alone and left at 19:08. That is my statement.\" The statement is corroborated by the landing/intercom record and the supplier payment report."
+    },
+    {
+      "id": "E6",
+      "title": "Archive attendance record",
+      "initial": false,
+      "author_kind": "supporting",
+      "source": "June, J-Q3",
+      "text": "The archive entrance recording shows Elias entering at 18:55 and not leaving until 19:12. It is time-checked against the building system and shows no intermediate exit. This corroborates his archive account during the office incident. It does not establish the murderer's identity or motive on its own."
+    }
+  ],
+  "questions": [
+    {
+      "id": "N-Q1",
+      "character_id": "nora",
+      "prompt": "Walk me through your departure.",
+      "requires_all": [],
+      "responses": [
+        {
+          "id": "N-Q1-after-return",
+          "requires_all": [
+            "nora_return_admitted"
+          ],
+          "text": "I left at 18:50, then came back at 19:02. I went straight to Martin's office and left again at 19:08. You have the landing record now.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        },
+        {
+          "id": "N-Q1-initial",
+          "requires_all": [],
+          "text": "I left at 18:50 and went to my car. I did not return to the office. I cannot tell you what happened after I left.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": "Knowingly lies about returning; the 18:50 departure itself is true."
+        }
+      ]
+    },
+    {
+      "id": "N-Q2",
+      "character_id": "nora",
+      "prompt": "Why did Martin want to meet you?",
+      "requires_all": [],
+      "responses": [
+        {
+          "id": "N-Q2-after-admission",
+          "requires_all": [
+            "nora_confessed"
+          ],
+          "text": "He had found the money I diverted. The morning review would expose it. I wanted him to delay it.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        },
+        {
+          "id": "N-Q2-initial",
+          "requires_all": [],
+          "text": "There was a disagreement over supplier transfers. I called them short-term loans. Martin wanted to discuss the paperwork before the morning review.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": "Minimizes the unauthorized diversion as loans; do not change the verified payment facts."
+        }
+      ]
+    },
+    {
+      "id": "N-Q3",
+      "character_id": "nora",
+      "prompt": "What can you tell me about the other two?",
+      "requires_all": [],
+      "responses": [
+        {
+          "id": "N-Q3-answer",
+          "requires_all": [],
+          "text": "Elias kept the accounts and June looked after the building. Elias was worried about an expense claim. June had an emergency key. They can explain those matters themselves.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "N-Q4",
+      "character_id": "nora",
+      "prompt": "Did you hear an argument that evening?",
+      "requires_all": [],
+      "responses": [
+        {
+          "id": "N-Q4-after-admission",
+          "requires_all": [
+            "nora_confessed"
+          ],
+          "text": "Martin and I argued about the money. I struck him during that argument. I have already given you the account of what I did.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        },
+        {
+          "id": "N-Q4-after-return",
+          "requires_all": [
+            "nora_return_admitted"
+          ],
+          "text": "Our discussion became heated. I wanted the review delayed. I am not going to describe it further just now.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        },
+        {
+          "id": "N-Q4-initial",
+          "requires_all": [],
+          "text": "I had already left. I cannot describe an argument in the office after 19:00.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": "Deflects by repeating the false never-returned account."
+        }
+      ]
+    },
+    {
+      "id": "N-F1",
+      "character_id": "nora",
+      "prompt": "Why did you come back after leaving?",
+      "requires_all": [
+        "nora_return_admitted"
+      ],
+      "responses": [
+        {
+          "id": "N-F1-after-admission",
+          "requires_all": [
+            "nora_confessed"
+          ],
+          "text": "I came back because Martin had found the transfers and would not delay the review. That is why we argued.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        },
+        {
+          "id": "N-F1-before-admission",
+          "requires_all": [],
+          "text": "Martin wanted an explanation before the review. I thought I could persuade him to postpone it. He was still alive when I left.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": "Admits return/motive pressure but falsely claims Martin was alive on departure."
+        }
+      ]
+    },
+    {
+      "id": "N-F2",
+      "character_id": "nora",
+      "prompt": "What did you do after the argument?",
+      "requires_all": [
+        "nora_confessed"
+      ],
+      "responses": [
+        {
+          "id": "N-F2-answer",
+          "requires_all": [],
+          "text": "I left the office alone at 19:08. I did not stay to call for help. The building record shows my departure.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "E-Q1",
+      "character_id": "elias",
+      "prompt": "Where were you around 19:00?",
+      "requires_all": [],
+      "responses": [
+        {
+          "id": "E-Q1-answer",
+          "requires_all": [],
+          "text": "I entered the records archive at 18:55 to retrieve old invoices. I stayed until 19:12. June can provide the archive entry and exit record.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "E-Q2",
+      "character_id": "elias",
+      "prompt": "What was the payment review meant to examine?",
+      "requires_all": [],
+      "responses": [
+        {
+          "id": "E-Q2-answer",
+          "requires_all": [],
+          "text": "I prepared a report on GBP 18,000 sent to a supplier controlled by Nora. The bank references and her payment authorizations match the ledger. Martin planned to raise it at 08:00. Here is the report. My own expense mistake is listed separately.",
+          "grant_evidence": [
+            "E4"
+          ],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "E-Q3",
+      "character_id": "elias",
+      "prompt": "Did you have a dispute with Martin?",
+      "requires_all": [],
+      "responses": [
+        {
+          "id": "E-Q3-answer",
+          "requires_all": [],
+          "text": "He challenged a GBP 300 reimbursement of mine. It was a personal expense I should not have claimed. I was embarrassed and worried about my job. That is separate from the supplier transfers.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "E-Q4",
+      "character_id": "elias",
+      "prompt": "Who knew about the review?",
+      "requires_all": [],
+      "responses": [
+        {
+          "id": "E-Q4-answer",
+          "requires_all": [],
+          "text": "Martin, Nora and I had the agenda. June knew there was an evening meeting, but I did not discuss the payment report with her. Martin asked me to retrieve supporting invoices from the archive.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "E-F1",
+      "character_id": "elias",
+      "prompt": "How does your expense claim relate to the report?",
+      "requires_all": [
+        "E4"
+      ],
+      "responses": [
+        {
+          "id": "E-F1-answer",
+          "requires_all": [],
+          "text": "It is a separate GBP 300 entry. The GBP 18,000 went through Nora's sole authorizations to a supplier she controlled. My incorrect reimbursement does not account for those transfers.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "E-F2",
+      "character_id": "elias",
+      "prompt": "Does the archive record cover the whole interval?",
+      "requires_all": [
+        "E6"
+      ],
+      "responses": [
+        {
+          "id": "E-F2-answer",
+          "requires_all": [],
+          "text": "Yes. I entered at 18:55 and left at 19:12. I was looking through old invoices the whole time. I did not make an intermediate trip to Martin's office.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "J-Q1",
+      "character_id": "june",
+      "prompt": "Tell me how you found Martin.",
+      "requires_all": [],
+      "responses": [
+        {
+          "id": "J-Q1-answer",
+          "requires_all": [],
+          "text": "At 19:04 Martin spoke to me on the intercom. He said Nora was with him and asked for a few minutes of privacy. I heard a short clatter around 19:05 but did not see what caused it. I checked the office at 19:10 and found him dead. I called the police at 19:11.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "J-Q2",
+      "character_id": "june",
+      "prompt": "Are there records of movement near the office?",
+      "requires_all": [],
+      "responses": [
+        {
+          "id": "J-Q2-answer",
+          "requires_all": [],
+          "text": "Yes. The landing recording shows Nora entering at 19:02 and leaving at 19:08, then me arriving at 19:10. Nobody else enters in between. The time check and Martin's 19:04 intercom contact are included. Here is the complete record.",
+          "grant_evidence": [
+            "E3"
+          ],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "J-Q3",
+      "character_id": "june",
+      "prompt": "Can you check Elias's archive account?",
+      "requires_all": [],
+      "responses": [
+        {
+          "id": "J-Q3-answer",
+          "requires_all": [],
+          "text": "The archive recording shows him entering at 18:55 and leaving at 19:12, with no exit between those times. Here is the attendance record.",
+          "grant_evidence": [
+            "E6"
+          ],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "J-Q4",
+      "character_id": "june",
+      "prompt": "Who could enter Martin's office?",
+      "requires_all": [],
+      "responses": [
+        {
+          "id": "J-Q4-answer",
+          "requires_all": [],
+          "text": "Martin and Nora normally used it. I hold an emergency key. There is only one entrance, from the recorded third-floor landing, and no usable window entrance. I was at the lobby desk until I went up at 19:10.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "J-F1",
+      "character_id": "june",
+      "prompt": "Could someone have entered without appearing in the record?",
+      "requires_all": [
+        "E3"
+      ],
+      "responses": [
+        {
+          "id": "J-F1-answer",
+          "requires_all": [],
+          "text": "Not through another route. The office has one entrance and the recording covers it continuously. The time check is complete. I did not see the attack, so I can only speak to those records and my intercom contact.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "J-F2",
+      "character_id": "june",
+      "prompt": "What supports the archive entry and exit times?",
+      "requires_all": [
+        "E6"
+      ],
+      "responses": [
+        {
+          "id": "J-F2-answer",
+          "requires_all": [],
+          "text": "The recording covers the archive entrance continuously and is time-checked to the same building clock. It shows no intermediate exit by Elias. It is more than a name written on a sign-in sheet.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    }
+  ],
+  "confrontations": [
+    {
+      "id": "C-nora-E1",
+      "character_id": "nora",
+      "evidence_id": "E1",
+      "responses": [
+        {
+          "id": "C-nora-E1-no-new-information",
+          "requires_all": [
+            "E1"
+          ],
+          "text": "I have nothing further to add to that incident summary.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-nora-E2",
+      "character_id": "nora",
+      "evidence_id": "E2",
+      "responses": [
+        {
+          "id": "C-nora-E2-no-new-information",
+          "requires_all": [
+            "E2"
+          ],
+          "text": "The appointment note is real. I have nothing further to add about the note itself.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-nora-E3",
+      "character_id": "nora",
+      "evidence_id": "E3",
+      "responses": [
+        {
+          "id": "C-nora-E3-return",
+          "requires_all": [
+            "E3"
+          ],
+          "text": "That is me in the record. I came back at 19:02 to speak to Martin and left at 19:08. I did not want to admit we had argued. He was still alive when I left.",
+          "grant_evidence": [],
+          "set_flags": [
+            "nora_return_admitted"
+          ],
+          "author_truth_note": "Return is true; alive-on-departure claim is false."
+        }
+      ]
+    },
+    {
+      "id": "C-nora-E4",
+      "character_id": "nora",
+      "evidence_id": "E4",
+      "responses": [
+        {
+          "id": "C-nora-E4-admission",
+          "requires_all": [
+            "E3",
+            "E4",
+            "nora_return_admitted"
+          ],
+          "text": "You have the record of my return and the payments. Martin had found the money I diverted and said he would expose me at the review. During our argument I struck him with the desk paperweight. I acted alone and left at 19:08. That is my statement.",
+          "grant_evidence": [
+            "E5"
+          ],
+          "set_flags": [
+            "nora_confessed"
+          ],
+          "author_truth_note": "Truthful admission, corroborated by E3/E4; creates text evidence E5."
+        },
+        {
+          "id": "C-nora-E4-deflection",
+          "requires_all": [
+            "E4"
+          ],
+          "text": "I authorized those transfers as loans. Martin and I disagreed over the paperwork. A payment report does not tell you what happened in his office after I left.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": "False loan explanation and misleading departure claim. No evidence or milestone is granted."
+        }
+      ]
+    },
+    {
+      "id": "C-nora-E5",
+      "character_id": "nora",
+      "evidence_id": "E5",
+      "responses": [
+        {
+          "id": "C-nora-E5-no-new-information",
+          "requires_all": [
+            "E5"
+          ],
+          "text": "That is the statement I have just given. I have nothing to add to it.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-nora-E6",
+      "character_id": "nora",
+      "evidence_id": "E6",
+      "responses": [
+        {
+          "id": "C-nora-E6-no-new-information",
+          "requires_all": [
+            "E6"
+          ],
+          "text": "That is Elias's archive record. I cannot add anything about that item.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-elias-E1",
+      "character_id": "elias",
+      "evidence_id": "E1",
+      "responses": [
+        {
+          "id": "C-elias-E1-no-new-information",
+          "requires_all": [
+            "E1"
+          ],
+          "text": "I have nothing further to add to that incident summary.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-elias-E2",
+      "character_id": "elias",
+      "evidence_id": "E2",
+      "responses": [
+        {
+          "id": "C-elias-E2-no-new-information",
+          "requires_all": [
+            "E2"
+          ],
+          "text": "I recognize the appointment note. I have no further information about the note itself.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-elias-E3",
+      "character_id": "elias",
+      "evidence_id": "E3",
+      "responses": [
+        {
+          "id": "C-elias-E3-no-new-information",
+          "requires_all": [
+            "E3"
+          ],
+          "text": "The landing record speaks for itself. I have no further information to add about it.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-elias-E4",
+      "character_id": "elias",
+      "evidence_id": "E4",
+      "responses": [
+        {
+          "id": "C-elias-E4-no-new-information",
+          "requires_all": [
+            "E4"
+          ],
+          "text": "Those are the payment records I supplied. I have no new information to add to that report.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-elias-E5",
+      "character_id": "elias",
+      "evidence_id": "E5",
+      "responses": [
+        {
+          "id": "C-elias-E5-no-new-information",
+          "requires_all": [
+            "E5"
+          ],
+          "text": "I have nothing to add to Nora's recorded statement.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-elias-E6",
+      "character_id": "elias",
+      "evidence_id": "E6",
+      "responses": [
+        {
+          "id": "C-elias-E6-no-new-information",
+          "requires_all": [
+            "E6"
+          ],
+          "text": "That is the archive record. I have no further information to add about it.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-june-E1",
+      "character_id": "june",
+      "evidence_id": "E1",
+      "responses": [
+        {
+          "id": "C-june-E1-no-new-information",
+          "requires_all": [
+            "E1"
+          ],
+          "text": "I have no further information to add to that incident summary.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-june-E2",
+      "character_id": "june",
+      "evidence_id": "E2",
+      "responses": [
+        {
+          "id": "C-june-E2-no-new-information",
+          "requires_all": [
+            "E2"
+          ],
+          "text": "That is the note I handed over. I have no further information about the note itself.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-june-E3",
+      "character_id": "june",
+      "evidence_id": "E3",
+      "responses": [
+        {
+          "id": "C-june-E3-no-new-information",
+          "requires_all": [
+            "E3"
+          ],
+          "text": "That is the complete landing and intercom record. I cannot add anything further to it.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-june-E4",
+      "character_id": "june",
+      "evidence_id": "E4",
+      "responses": [
+        {
+          "id": "C-june-E4-no-new-information",
+          "requires_all": [
+            "E4"
+          ],
+          "text": "I do not handle company payments. I cannot add anything about that report.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-june-E5",
+      "character_id": "june",
+      "evidence_id": "E5",
+      "responses": [
+        {
+          "id": "C-june-E5-no-new-information",
+          "requires_all": [
+            "E5"
+          ],
+          "text": "I have nothing to add to that recorded statement.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    },
+    {
+      "id": "C-june-E6",
+      "character_id": "june",
+      "evidence_id": "E6",
+      "responses": [
+        {
+          "id": "C-june-E6-no-new-information",
+          "requires_all": [
+            "E6"
+          ],
+          "text": "That is the archive export I supplied. There is no additional entry to explain.",
+          "grant_evidence": [],
+          "set_flags": [],
+          "author_truth_note": ""
+        }
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "M-landing",
+      "token": "E3",
+      "meaning": "Landing/intercom evidence collected"
+    },
+    {
+      "id": "M-payments",
+      "token": "E4",
+      "meaning": "Payment evidence collected"
+    },
+    {
+      "id": "M-archive",
+      "token": "E6",
+      "meaning": "Archive evidence collected; may leave the highest-priority hint unchanged"
+    },
+    {
+      "id": "M-return",
+      "token": "nora_return_admitted",
+      "meaning": "Nora confronted with landing record and admits return"
+    },
+    {
+      "id": "M-admission",
+      "token": "nora_confessed",
+      "meaning": "Corroborated admission obtained; E5 collected in the same action"
+    }
+  ],
+  "hint_rules": [
+    {
+      "id": "H-zero",
+      "turns_eq": 0,
+      "requires_all": [],
+      "requires_none": [],
+      "suggested_action": "review",
+      "text": "No turns remain. Review the evidence and interview history you have already collected, then decide whom you can accuse and which items support it. You can still submit an accusation."
+    },
+    {
+      "id": "H-ready",
+      "turns_eq": null,
+      "requires_all": [
+        "nora_confessed"
+      ],
+      "requires_none": [],
+      "suggested_action": "accuse",
+      "text": "Compare the statements and records you have collected. Choose the person whose account fits the facts and the evidence that supports your accusation."
+    },
+    {
+      "id": "H-combine",
+      "turns_eq": null,
+      "requires_all": [
+        "E3",
+        "E4",
+        "nora_return_admitted"
+      ],
+      "requires_none": [],
+      "suggested_action": "C-nora-E4",
+      "text": "Now that the departure account has changed, present the payment report to the person connected to those transfers."
+    },
+    {
+      "id": "H-return",
+      "turns_eq": null,
+      "requires_all": [
+        "E3"
+      ],
+      "requires_none": [
+        "nora_return_admitted"
+      ],
+      "suggested_action": "C-nora-E3",
+      "text": "Compare the landing record with the departure account in the incident summary. Present the record to the person whose account it contradicts."
+    },
+    {
+      "id": "H-payments",
+      "turns_eq": null,
+      "requires_all": [
+        "nora_return_admitted"
+      ],
+      "requires_none": [
+        "E4"
+      ],
+      "suggested_action": "E-Q2",
+      "text": "Ask the accountant what the scheduled payment review was meant to examine."
+    },
+    {
+      "id": "H-landing",
+      "turns_eq": null,
+      "requires_all": [],
+      "requires_none": [],
+      "suggested_action": "J-Q2",
+      "text": "Ask the building caretaker about records of movement near the office."
+    }
+  ],
+  "solution_text": "Nora Reed killed Martin Hale. She claimed she never returned after 18:50, but the landing and intercom record places her alone with him while he was alive at 19:04, before she left at 19:08 and June found him at 19:10. The supplier payment report explains why she wanted the review stopped: Martin had found GBP 18,000 diverted through her authorizations. Confronted with her return and the payment report, Nora admitted striking Martin with the desk paperweight and leaving at 19:08. The required proof set is the landing/intercom record, supplier payment report and corroborated recorded admission. The appointment note and incident summary establish context; the archive record supports Elias's account. Elias's separate GBP 300 expense mistake and June's emergency key do not make either the murderer.",
+  "approved_on": "2026-11-08",
+  "approved_design_choices": [
+    "Approved finale: the advanced confrontation yields an explicit corroborated admission. The introductory challenge is exposing the false account and assembling proof, rather than concealing the culprit until the verdict.",
+    "Approved routes: an expert can prove the case in four charged actions; the example investigation takes nine. Twelve is a ceiling, not a minimum. The approximately 15-minute pacing target still requires real playtesting.",
+    "Approved evidence split: two initial supporting cards and four discoveries, including all three required proof items. Other dialogue remains in the transcript rather than creating additional evidence cards.",
+    "The user approved the complete case as drafted, including names, culprit, timeline, exact dialogue, graph, hint table and admission-based ending, on 2026-11-08. Any revision requires a recorded approval and revalidation."
+  ]
+}
