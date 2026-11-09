@@ -4,9 +4,9 @@ Retrospectively reconstructed from this Codex chat on 2026-11-08. Completed entr
 
 ## Open items
 
-- [ ] 2026-11-09 [Hosting / H01](993-2026-11-09-08-32-00-hosting-setup.md) — Supabase provisioned and verified; Daniel completes Vercel Hobby account setup and project import/Git linkage. Shared ownership/status: [H01](../../.docs/team-work.md#task-register).
+- [ ] 2026-11-09 [Hosting / H01](993-2026-11-09-08-32-00-hosting-setup.md) — Supabase provisioned and verified; Daniel submitted Vercel signup appeal. Await response, then complete Hobby account setup and project import/Git linkage. Shared ownership/status: [H01](../../.docs/team-work.md#task-register).
 - [ ] 2026-11-09 [Hosting / R01, F01, H01](993-2026-11-09-08-32-00-hosting-setup.md) — Agree build/env/migration and free preview-data isolation; verify deployed application/database flow and PR preview; record production URL in README.
-- [ ] 2026-11-09 [Hosting / GitHub CLI](993-2026-11-09-08-32-00-hosting-setup.md) — Optional teacher-recommended CLI installation/login remains user setup work.
+- [x] 2026-11-09 [Hosting / GitHub CLI](993-2026-11-09-08-32-00-hosting-setup.md) — Installed GitHub CLI 2.103.3 per-user; signed in as NorskNoobing using Windows keyring; course repository WRITE access verified. (resolved 2026-11-09)
 
 - [ ] 2026-11-08 [UX design / U01](../../.docs/team-work.md#task-register) — Resume visual direction/name and interview information hierarchy in the UX workspace. Follow shared owner/status rather than duplicating assignments here.
 - [ ] 2026-11-08 [Architecture / R01 and F01](../../.docs/team-work.md#task-register) — Daniel reviews the joint contracts and coordinates his progress/account needs; shared register owns allocation and status.
