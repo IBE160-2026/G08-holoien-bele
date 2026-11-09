@@ -4,6 +4,10 @@ Retrospectively reconstructed from this Codex chat on 2026-11-08. Completed entr
 
 ## Open items
 
+- [ ] 2026-11-09 [Hosting / H01](993-2026-11-09-08-32-00-hosting-setup.md) — Supabase provisioned and verified; Daniel completes Vercel Hobby account setup and project import/Git linkage. Shared ownership/status: [H01](../../.docs/team-work.md#task-register).
+- [ ] 2026-11-09 [Hosting / R01, F01, H01](993-2026-11-09-08-32-00-hosting-setup.md) — Agree build/env/migration and free preview-data isolation; verify deployed application/database flow and PR preview; record production URL in README.
+- [ ] 2026-11-09 [Hosting / GitHub CLI](993-2026-11-09-08-32-00-hosting-setup.md) — Optional teacher-recommended CLI installation/login remains user setup work.
+
 - [ ] 2026-11-08 [UX design / U01](../../.docs/team-work.md#task-register) — Resume visual direction/name and interview information hierarchy in the UX workspace. Follow shared owner/status rather than duplicating assignments here.
 - [ ] 2026-11-08 [Architecture / R01 and F01](../../.docs/team-work.md#task-register) — Daniel reviews the joint contracts and coordinates his progress/account needs; shared register owns allocation and status.
 - [x] 2026-11-08 [PRD / case approval](998-2026-11-08-13-34-44-detective-game-prd.md) — Complete The Last Invoice case version 1.0 approved, including exact content, culprit, admission-based finale and demonstrated routes. (resolved 2026-11-08)
