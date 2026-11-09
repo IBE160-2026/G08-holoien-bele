@@ -72,6 +72,10 @@ Then edit `.env` privately. Get the actual pooler URI from the project's **Conne
 
 Dashboard membership and PostgreSQL credentials are separate. Membership does not guarantee the database password can be recovered. This preparation stores no actual connection secret and does not claim a local application connection test. The Supabase connector query verified provider-side access only. Full application connection verification follows when a backend exists and credentials are configured locally/Vercel.
 
+For Daniel's first local client test, an ignored `.env` has been created from the template. In **Connect > Direct**, choose **Session pooler** for a local IPv4-compatible client and copy its URI. Substitute the URL-encoded database password privately and require SSL. The initial project-creation tool did not return a database password. If it was not saved elsewhere, Daniel must set a new one through **Database > Settings > Reset database password** and update `.env` himself. No password reset has been performed by the agent.
+
+The official `postgres:17-alpine` Docker image is cached for a disposable PostgreSQL client test (`psql` 17.11 verified). It is only a client for the hosted database in this check; no local database server or volume was created. A successful test will verify a read-only query and SSL from this machine. It will not establish that the future backend loads `.env` correctly.
+
 Once Vercel signup is approved, import the existing GitHub repo, add `DATABASE_URL` for the intended environment, and deploy the actual backend. Pushing code to GitHub does not upload local `.env` values. Keep the current shared hosted database to disposable development/test data until production/preview separation is established. Do not enable paid database branching or provision another project as an implicit part of onboarding.
 
 ## Local tool setup
@@ -79,6 +83,12 @@ Once Vercel signup is approved, import the existing GitHub repo, add `DATABASE_U
 GitHub CLI is installed at `%LOCALAPPDATA%\Programs\GitHub CLI\bin\gh.exe`; its bin directory was added to the user PATH. Open a new terminal if an existing session cannot find `gh`. Windows Package Manager downloads timed out twice; the official release API download verified against GitHub's SHA256 and the MSI signature. The MSI returned error 1603, so installation used the official checksum-verified portable archive instead. `gh auth status` confirms keyring storage and HTTPS; `gh repo view` confirms WRITE access to this repository. The existing Git credential helper was preserved.
 
 Docker's `desktop-linux` context responds outside the restricted agent sandbox. The earlier named-pipe permission error occurred within that sandbox; no Docker group memberships, service settings or pipe permissions were changed. Docker's official `hello-world` image pulled and ran successfully with `--rm`; the image remains cached. This verifies basic engine operation, not the future application Compose stack.
+
+## Shared agent skills
+
+Official [Supabase agent skills](https://github.com/supabase/agent-skills) are vendored at revision `c9be0e931b7930f7d02126d04774d904c381e7d7` under `.agents/skills/supabase/` and `.agents/skills/supabase-postgres-best-practices/`, including references and MIT license notices. `.claude/skills/` has entry points that load those canonical copies. The Codex skill-installer helper installed the pinned repository-local source; no global installation or application package dependency was added.
+
+After pulling this setup branch (or main after its PR merges), Daniel and Jakob can use the same guidance in Codex and Claude Code. Newly installed skills become available on the next turn; reopen the project/session if a client still shows its old catalog. These are instructions for coding agents; each person still needs their own Supabase account and any desired MCP/plugin authorization. They do not connect the application or distribute database secrets. Update the pinned skills deliberately in a task PR and keep the Claude entry points aligned; avoid a blanket skills update that also changes the existing BMAD setup.
 
 ## Remaining verification
 
