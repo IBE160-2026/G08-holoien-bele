@@ -18,7 +18,7 @@ Daniel confirmed ownership of the group's Vercel and Supabase projects on 2026-1
 | Docker | Engine 29.9.2 and Compose v5.6.1 available; `docker run --rm hello-world` passed outside agent sandbox |
 | Daniel's local hosted database connection | Ignored `.env` configured; session-pooler authentication and read-only `SELECT 1` passed from local Docker psql 17.11; client reports TLS 1.3 |
 | Jakob's Supabase access | Daniel confirms Jakob accepted the invitation and can see `g08-skarmory` (2026-11-09) |
-| Jakob's local hosted database connection | Jakob reports it is working, relayed by Daniel on 2026-11-09; no independent query or SSL verification evidence supplied |
+| Jakob's local hosted database connection | Screenshot of Jakob's Codex test report supplied by Daniel on 2026-11-09: `SELECT 1` passed in a read-only transaction, TLS 1.3 confirmed, `.env` ignored by Git; not rerun by this agent |
 
 [Open the Supabase project](https://supabase.com/dashboard/project/jyscyqgsztgokuveolgt).
 
@@ -42,7 +42,7 @@ Store credentials in provider environment settings and ignored local environment
 
 ## Shared Supabase access
 
-Daniel owns the G08 Skarmory organization. On 2026-11-09 Daniel confirmed that Jakob created his own account, accepted the invitation and can see `g08-skarmory`. Jakob subsequently reported that his local database connection is working. This is a user-reported outcome; the agent has not independently tested Jakob's machine, SQL query or SSL connection. Vercel signup appeal/import remains pending.
+Daniel owns the G08 Skarmory organization. On 2026-11-09 Daniel confirmed that Jakob created his own account, accepted the invitation and can see `g08-skarmory`. Daniel then supplied a screenshot of Jakob's Codex test report: `SELECT 1` passed in a read-only transaction, SSL was confirmed with TLS 1.3, and `.env` is ignored by Git. The report also states that no data changed and the URI/password were neither displayed nor committed. This is supplied test evidence from Jakob's environment; this agent did not rerun the test on his machine. Vercel signup appeal/import remains pending.
 
 GitHub repository membership does not automatically grant Supabase dashboard access. Each developer uses their own Supabase account; no shared account password is needed. The onboarding steps below remain as reference:
 
@@ -101,7 +101,6 @@ After pulling this setup branch (or main after its PR merges), Daniel and Jakob 
 - R01/F01 app framework, server-only environment contract, migration process and preview data separation.
 - Runtime connection from the deployed application, account isolation and persisted progress.
 - Production URL in README and working per-PR preview.
-- Independent query/SSL verification for Jakob's local connection, if required; it is currently reported working.
 - Actual local/Vercel backend connection test; the independent local PostgreSQL client connection is verified.
 
 ## References
