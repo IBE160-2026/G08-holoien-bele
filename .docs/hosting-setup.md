@@ -16,6 +16,7 @@ Daniel confirmed ownership of the group's Vercel and Supabase projects on 2026-1
 | Vercel | Daniel submitted a signup appeal; account/import pending; no deployment URL |
 | GitHub CLI | 2.103.3 installed per-user; signed in as NorskNoobing using Windows keyring; repository WRITE access verified |
 | Docker | Engine 29.9.2 and Compose v5.6.1 available; `docker run --rm hello-world` passed outside agent sandbox |
+| Local hosted database connection | Ignored `.env` configured; session-pooler authentication and read-only `SELECT 1` passed from local Docker psql 17.11; client reports TLS 1.3 |
 
 [Open the Supabase project](https://supabase.com/dashboard/project/jyscyqgsztgokuveolgt).
 
@@ -70,11 +71,11 @@ if (-not (Test-Path -LiteralPath .env)) {
 
 Then edit `.env` privately. Get the actual pooler URI from the project's **Connect** dialog; retain its exact host, username and port, use the database password, and URL-encode any password characters that require it. Require encrypted transport (for URI-based clients, `sslmode=require`); use driver settings compatible with transaction pooling. API keys and Supabase account passwords are not PostgreSQL database passwords. Do not reset an existing database password merely to onboard a teammate; coordinate any necessary rotation because it invalidates clients using the old password. If an existing database password must be handed off, use a private password-manager share rather than GitHub, chat or a committed file. A database runtime role and a migration role can be defined with the actual schema during F01; no role/password changes were made by this preparation.
 
-Dashboard membership and PostgreSQL credentials are separate. Membership does not guarantee the database password can be recovered. This preparation stores no actual connection secret and does not claim a local application connection test. The Supabase connector query verified provider-side access only. Full application connection verification follows when a backend exists and credentials are configured locally/Vercel.
+Dashboard membership and PostgreSQL credentials are separate. Membership does not guarantee the database password can be recovered. No actual connection secret is committed. The initial Supabase connector query verified provider-side access only; a subsequent local PostgreSQL client test also passed as recorded below. Full application connection verification follows when a backend exists and Vercel credentials are configured.
 
 For Daniel's first local client test, an ignored `.env` has been created from the template. In **Connect > Direct**, choose **Session pooler** for a local IPv4-compatible client and copy its URI. Substitute the URL-encoded database password privately and require SSL. The initial project-creation tool did not return a database password. If it was not saved elsewhere, Daniel must set a new one through **Database > Settings > Reset database password** and update `.env` himself. No password reset has been performed by the agent.
 
-The official `postgres:17-alpine` Docker image is cached for a disposable PostgreSQL client test (`psql` 17.11 verified). It is only a client for the hosted database in this check; no local database server or volume was created. A successful test will verify a read-only query and SSL from this machine. It will not establish that the future backend loads `.env` correctly.
+The official `postgres:17-alpine` Docker image is cached for a disposable PostgreSQL client test (`psql` 17.11 verified). It is only a client for the hosted database in this check; no local database server or volume was created. Daniel saved the private URI/password in `.env`; the agent added the missing `sslmode=require` option without displaying the secret. Session-pooler authentication and read-only `SELECT 1` passed from this machine, and psql's `\conninfo` reported TLS 1.3. Database-side `pg_stat_ssl` is not the client-to-pooler TLS check; use the client's connection information for this hop. No tables or application data changed, and test containers used `--rm`. This does not establish that the future backend loads `.env` correctly.
 
 Once Vercel signup is approved, import the existing GitHub repo, add `DATABASE_URL` for the intended environment, and deploy the actual backend. Pushing code to GitHub does not upload local `.env` values. Keep the current shared hosted database to disposable development/test data until production/preview separation is established. Do not enable paid database branching or provision another project as an implicit part of onboarding.
 
@@ -97,7 +98,7 @@ After pulling this setup branch (or main after its PR merges), Daniel and Jakob 
 - Runtime connection from the deployed application, account isolation and persisted progress.
 - Production URL in README and working per-PR preview.
 - Jakob's Supabase account, invitation acceptance and project access.
-- Private database credential configuration and actual local/Vercel backend connection test.
+- Actual local/Vercel backend connection test; the independent local PostgreSQL client connection is verified.
 
 ## References
 
