@@ -33,9 +33,46 @@ The announcement supplies course context; it does not make Supabase a course req
 
 Use the project's Connect dialog to obtain the actual PostgreSQL connection details. Supabase recommends the transaction pooler for serverless workloads. The selected driver must use compatible pooling/prepared-statement settings and encrypted connections. Choose a migration connection separately according to the migration tool and available network support.
 
-The application has no environment contract yet. `DATABASE_URL` is a possible server-only name, not a configured or implemented variable. Do not use `VITE_` or `NEXT_PUBLIC_` prefixes for a database connection string or password. Supabase API keys are not PostgreSQL passwords; this database-only design does not currently require a browser Supabase client or Supabase Auth.
+The root [`.env.example`](../.env.example) now provides a blank, server-only `DATABASE_URL` connection handoff. No application consumes this variable yet; F01 must implement environment loading and validation. Do not use `VITE_` or `NEXT_PUBLIC_` prefixes for a database connection string or password. Supabase API keys are not PostgreSQL passwords; this database-only design does not currently require a browser Supabase client or Supabase Auth.
 
 Store credentials in provider environment settings and ignored local environment files. Never commit or paste credentials into this document, README, PR descriptions or session logs. Redeploy after changing Vercel environment variables; existing deployments keep their previous values.
+
+## Shared Supabase access
+
+Daniel owns the G08 Skarmory organization. Jakob does not yet have a Supabase account (reported by Daniel on 2026-11-09), so his membership is pending. GitHub repository membership does not automatically grant Supabase dashboard access. Each developer uses their own Supabase account; no shared account password is needed.
+
+1. Jakob creates his own account at [Supabase Dashboard](https://supabase.com/dashboard). He does not need to create another project or organization for this group.
+2. Daniel opens [G08 Skarmory team settings](https://supabase.com/dashboard/org/nmyliugrywszxubbkxsq/team), chooses the invitation control, enters Jakob's account email and selects **Developer**. This is the recommended development role; Daniel remains Owner. Developer grants project content access but not project-setting administration. Organization-scoped access covers all current and future projects in this group organization; project-scoped roles require Team/Enterprise plans.
+3. Jakob accepts the email invitation within 24 hours and confirms he can open `g08-skarmory` and its SQL Editor. Invitation creation/acceptance has not been verified. The connected Supabase tool has no member-management operation, so these steps must be completed in the dashboard.
+4. Each person connects their own Supabase coding-agent integration if wanted. Daniel's ChatGPT connection does not install or authorize one for Jakob.
+
+## Credential workflow
+
+The supplied teacher announcement says to put keys and database addresses under Vercel **Settings > Environment Variables**, keep local values in an ignored `.env` file, and never commit passwords/API keys/database connection strings. It warns that `VITE_` and `NEXT_PUBLIC_` variables are browser-visible. It does not specify a shared password vault or automatic database migration workflow.
+
+Recommended minimal setup for this database-only application:
+
+| Where | Configuration | Who sets it |
+|---|---|---|
+| Git repository | Blank `.env.example`, setup documentation and future migration files | Both developers through task PRs |
+| Each developer machine | Ignored `.env` with a private `DATABASE_URL` | Each developer |
+| Future Vercel Production | Server-only `DATABASE_URL` in project environment settings | Daniel as Vercel project owner |
+| Future Vercel Preview | Its own test database connection; no production data | Daniel after preview separation is agreed |
+| GitHub Actions | Local disposable database for tests; no hosted DB secret currently needed | F01 CI setup |
+
+For local hosted-database testing, copy the template only if `.env` does not exist:
+
+```powershell
+if (-not (Test-Path -LiteralPath .env)) {
+    Copy-Item -LiteralPath .env.example -Destination .env
+}
+```
+
+Then edit `.env` privately. Get the actual pooler URI from the project's **Connect** dialog; retain its exact host, username and port, use the database password, and URL-encode any password characters that require it. Require encrypted transport (for URI-based clients, `sslmode=require`); use driver settings compatible with transaction pooling. API keys and Supabase account passwords are not PostgreSQL database passwords. Do not reset an existing database password merely to onboard a teammate; coordinate any necessary rotation because it invalidates clients using the old password. If an existing database password must be handed off, use a private password-manager share rather than GitHub, chat or a committed file. A database runtime role and a migration role can be defined with the actual schema during F01; no role/password changes were made by this preparation.
+
+Dashboard membership and PostgreSQL credentials are separate. Membership does not guarantee the database password can be recovered. This preparation stores no actual connection secret and does not claim a local application connection test. The Supabase connector query verified provider-side access only. Full application connection verification follows when a backend exists and credentials are configured locally/Vercel.
+
+Once Vercel signup is approved, import the existing GitHub repo, add `DATABASE_URL` for the intended environment, and deploy the actual backend. Pushing code to GitHub does not upload local `.env` values. Keep the current shared hosted database to disposable development/test data until production/preview separation is established. Do not enable paid database branching or provision another project as an implicit part of onboarding.
 
 ## Local tool setup
 
@@ -49,6 +86,8 @@ Docker's `desktop-linux` context responds outside the restricted agent sandbox. 
 - R01/F01 app framework, server-only environment contract, migration process and preview data separation.
 - Runtime connection from the deployed application, account isolation and persisted progress.
 - Production URL in README and working per-PR preview.
+- Jakob's Supabase account, invitation acceptance and project access.
+- Private database credential configuration and actual local/Vercel backend connection test.
 
 ## References
 
@@ -56,3 +95,4 @@ Docker's `desktop-linux` context responds outside the restricted agent sandbox. 
 - [Vercel environment variables](https://vercel.com/docs/environment-variables)
 - [Supabase PostgreSQL connections](https://supabase.com/docs/guides/database/connecting-to-postgres)
 - [Supabase environment management](https://supabase.com/docs/guides/deployment/managing-environments)
+- [Supabase organization roles and invitations](https://supabase.com/docs/guides/platform/access-control)
